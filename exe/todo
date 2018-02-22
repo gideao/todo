@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require 'todo'
+require 'todo/cli'
+
+Todo.configure do |c|
+  # c.db = Todo::Config.db_default_path
+end
+
+Todo::CLI.start
