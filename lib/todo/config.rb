@@ -19,9 +19,7 @@ module Todo
       #   @errors << 'Configuration file not found!'
       # end
 
-      if @db != ':memory:' && !File.exist?(@db)
-        @errors << 'Database not found!'
-      end
+      @errors << 'Database not found!' if @db != ':memory:' && !File.exist?(@db)
 
       @errors.empty?
     end
