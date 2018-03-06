@@ -7,6 +7,7 @@ module Todo
   autoload :Config, 'todo/config'
   autoload :Tag, 'todo/models/tag'
   autoload :Task, 'todo/models/task'
+  autoload :CLI, 'todo/cli'
 
   class << self
     def configure

@@ -4,10 +4,10 @@ module Todo
   class CLI < Thor
     ON_DATABASE_COMMANDS = %w[list add update delete].freeze
 
-    def initialize(*args)
+    def initialize(args = [], options = {}, config = {})
       super
-      current_cmd = args.last[:current_command].name
-      Todo.setup if ON_DATABASE_COMMANDS.include?(current_cmd)
+      current_cmd = config[:current_command]
+      Todo.setup if current_cmd && ON_DATABASE_COMMANDS.include?(current_cmd.name)
     end
 
     desc 'add TITLE', 'Create a task', aliases: 'a'
